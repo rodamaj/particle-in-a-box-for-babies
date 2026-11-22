@@ -141,3 +141,57 @@ h1 {
   .page-4 .math-symbol>button { min-width: 17px; padding: 7px 2px; }
   .probability-result strong { font-size: 1.6rem; }
 }
+
+/* Wide screens read like an open book: story and controls beside the same box. */
+@media (min-width: 960px) {
+  .book { max-width: 1500px; padding-inline: 40px; }
+  .book-header { padding-block: 18px; }
+  .page {
+    max-width: none; min-height: calc(100svh - 159px);
+    display: grid; grid-template-columns: minmax(360px, .9fr) minmax(0, 1.25fr);
+    grid-template-rows: auto 1fr auto; column-gap: clamp(24px, 4vw, 64px);
+    padding-top: 24px; align-items: start;
+  }
+  .chapter-copy { grid-column: 1; grid-row: 1; display: block; text-align: left; }
+  .page-count { margin-bottom: 14px; }
+  h1 { font-size: clamp(1.9rem, 3vw, 2.65rem); margin: 0 0 14px; }
+  .explanation { margin: 0; font-size: 1rem; line-height: 1.5; }
+  .scene { display: contents; }
+  .illustration {
+    grid-column: 2; grid-row: 1 / 3; align-self: start;
+    margin: 42px auto 0; max-width: 780px;
+  }
+  .scene-content { grid-column: 1; grid-row: 2; min-width: 0; padding-top: 18px; }
+  .one-idea { font-size: .9375rem; line-height: 1.5; margin: 0 auto 10px; }
+  .quiet-note { line-height: 1.45; margin-top: 6px; }
+  .single-control { margin-bottom: 12px; }
+  .equation-wrap { margin-top: 10px; }
+  .equation { min-height: 54px; font-size: 1.05rem; }
+  .equation-hint { margin-top: 4px; }
+  .energy-details { margin: 12px auto 0; padding-top: 8px; }
+  .energy-story { margin: 10px auto; }
+  .energy-story strong { margin: 3px 0; font-size: 1.6rem; }
+  .energy-story p { margin: 5px 0; }
+  .view-switch { margin: 0 auto 12px; }
+  .view-switch button { padding: 8px 10px; }
+  .experiment-controls { gap: 16px; padding: 0; margin: 0 0 12px; grid-template-columns: 1fr 1fr; }
+  .energy-readout { grid-column: 1 / -1; border: 0; padding: 0; text-align: center; }
+  .energy-readout strong { display: inline; margin-left: 10px; font-size: 1.3rem; }
+  .energy-readout .energy-unit { display: inline; margin-left: 6px; }
+  .probability-control { margin: 8px auto; }
+  .probability-result { margin: 8px 0; }
+  .probability-result strong { font-size: 1.5rem; }
+  .page-navigation { grid-column: 1 / -1; grid-row: 3; width: 100%; padding: 16px 0; align-self: end; }
+  .book-footer { padding: 12px 0; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; text-align: left; }
+  .inspiration { margin: 0; }
+  .references { margin: 0; max-width: 650px; }
+  .references summary { padding: 0; text-align: right; }
+}
+/* Let small screens grow naturally, without the former empty fixed-height rows. */
+@media (max-width: 959px) {
+  .page { min-height: 0; padding-top: 22px; }
+  .chapter-copy { display: flex; flex-direction: column; gap: 14px; align-items: center; }
+  .scene { padding-top: 18px; }
+  .illustration { margin-bottom: 12px; }
+  .page-navigation { padding-block: 22px; }
+}

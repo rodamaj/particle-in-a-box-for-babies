@@ -22,7 +22,7 @@ export default function StateChart({n, L, view, width, interval}: {
   }, [n, L, a, b]);
   const isWave = view === 'wave';
   const peak = isWave ? Math.sqrt(2 / L) : 2 / L;
-  return <ComposedChart width={width} height={150} data={data} margin={{top:0, right:0, bottom:0, left:0}} accessibilityLayer={false}>
+  return <ComposedChart width={width} height={150} data={data} margin={{top:6, right:0, bottom:6, left:0}} accessibilityLayer={false}>
     <XAxis hide dataKey="x" type="number" domain={[0,L]} padding={{left:0, right:0}}/>
     <YAxis hide type="number" domain={[-peak,peak]} allowDataOverflow/>
     <ReferenceLine y={0} stroke="#b0bec7" strokeWidth={1.5}/>
