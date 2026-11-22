@@ -172,3 +172,9 @@ naranja (#B45B00) para mejorar su contraste sobre blanco.
 
 Inspiración editorial: [*Quantum Physics for Babies*, de Chris Ferrie](https://www.csferrie.com/books/quantum-physics-for-babies).
 La interfaz muestra este crédito al pie del libro.
+
+## GitHub Pages
+
+Sitio: https://rodamaj.github.io/particle-in-a-box-for-babies/
+
+El workflow `.github/workflows/deploy.yml` ejecuta las pruebas, compila y publica al subir cambios a `main`. En Settings → Pages, la fuente debe ser GitHub Actions. Los recursos usan rutas relativas para funcionar bajo el nombre del repositorio y en un futuro dominio propio.
