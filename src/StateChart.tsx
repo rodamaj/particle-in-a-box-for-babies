@@ -1,0 +1,36 @@
+import {useMemo} from 'react';
+import {Area, ComposedChart, Line, ReferenceLine, XAxis, YAxis} from 'recharts';
+import {sampleState, wavefunction} from './physics';
+export type View = 'wave' | 'density';
+/** Draw only the curve. Illustration owns the one shared box and coordinate frame. */
+export default function StateChart({n, L, view, width, interval}: {
+  n: number; L: number; view: View; width: number; interval?: [number, number];
+}) {
+  const a = interval?.[0], b = interval?.[1];
+  const data = useMemo(() => {
+    const samples = sampleState(n, L);
+    if (a === undefined || b === undefined) return samples;
+    for (const x of [a, b]) {
+      if (!samples.some(point => point.x === x)) {
+        const psi = wavefunction(x, n, L);
+        samples.push({x, psi, density: psi ** 2});
+      }
+    }
+    return samples.sort((p, q) => p.x - q.x).map(point => ({...point,
+      selected: point.x >= a && point.x <= b ? point.density : null,
+    }));
+  }, [n, L, a, b]);
+  const isWave = view === 'wave';
+  const peak = isWave ? Math.sqrt(2 / L) : 2 / L;
+  return <ComposedChart width={width} height={150} data={data} margin={{top:0, right:0, bottom:0, left:0}} accessibilityLayer={false}>
+    <XAxis hide dataKey="x" type="number" domain={[0,L]} padding={{left:0, right:0}}/>
+    <YAxis hide type="number" domain={[-peak,peak]} allowDataOverflow/>
+    <ReferenceLine y={0} stroke="#c5c5d1" strokeWidth={1.5}/>
+    {isWave ? <Line dataKey="psi" stroke="#7560bd" strokeWidth={3} dot={false} isAnimationActive={false}/>
+      : <Area dataKey="density" stroke="#248777" fill="#248777" fillOpacity={interval ? 0.05 : 0.14} strokeWidth={3} isAnimationActive={false}/>}
+    {!isWave && interval && <>
+      <Area dataKey="selected" tooltipType="none" stroke="none" fill="#248777" fillOpacity={0.35} isAnimationActive={false}/>
+      <ReferenceLine x={a} stroke="#248777" strokeDasharray="4 4"/><ReferenceLine x={b} stroke="#248777" strokeDasharray="4 4"/>
+    </>}
+  </ComposedChart>;
+}
