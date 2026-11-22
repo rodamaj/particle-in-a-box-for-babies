@@ -21,7 +21,7 @@ src/Illustration.tsx Ilustraciones SVG simples, usando el motor existente.
 src/StateChart.tsx   Curvas Recharts dentro de la caja compartida.
 src/Equation.tsx     Símbolos KaTeX con explicaciones accesibles.
 src/ProbabilityControl.tsx  Intervalo a/b y porcentaje.
-src/References.tsx   Fuentes y límites del modelo.
+src/References.tsx   Enlaces de las fuentes y fecha de consulta.
 src/style.css        Diseño adaptable y estilos.
 src/main.tsx         Entrada React.
 
@@ -129,3 +129,12 @@ vertical se adapta a L y lleva valores numéricos desde el paso 8. El ancho
 general de la ilustración es esquemático; las posiciones x y los porcentajes
 se calculan con las unidades físicas del motor.
 Illustration.test.tsx comprueba etiquetas y geometría compartida.
+
+APARIENCIA Y CRÉDITOS
+Paleta de referencia: Aloha Hawaii, azul #003049, rojo #D62828, naranja
+#F77F00 y amarillo #FCBF49. La densidad usa una variante más oscura del
+naranja (#B45B00) para mejorar su contraste sobre blanco.
+https://www.schemecolor.com/aloha-hawaii-color-scheme.php
+Inspiración editorial: Quantum Physics for Babies, de Chris Ferrie.
+https://www.csferrie.com/books/quantum-physics-for-babies
+La interfaz muestra este crédito al pie del libro.

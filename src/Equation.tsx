@@ -92,6 +92,6 @@ export default function Equation({kind}: {kind: EquationKind}) {
       : kind === 'wave' ? <><S name="psi"/><span>(</span><S name="x"/><span>) = </span><S name="norm"/><S name="sin"/><span>(</span><Fraction top={<><S name="n"/><S name="pi"/><S name="x"/></>} bottom={<S name="L"/>}/><span>)</span></>
       : <><S name="rho"/><span>(</span><S name="x"/><span>) = </span><Symbol value={String.raw`|\psi_n(x)|^2`} label="Módulo de la función de onda al cuadrado">Es el módulo de la función de onda al cuadrado. Da una densidad de probabilidad que nunca es negativa.</Symbol></>}
     </div>
-    <p className="equation-hint">Tocá un símbolo para conocerlo. También podés usar Tab.</p>
+    <p className="equation-hint">Seleccioná un símbolo para ver su significado.</p>
   </div>;
 }
