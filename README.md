@@ -178,3 +178,7 @@ La interfaz muestra este crédito al pie del libro.
 Sitio: https://rodamaj.github.io/particle-in-a-box-for-babies/
 
 El workflow `.github/workflows/deploy.yml` ejecuta las pruebas, compila y publica al subir cambios a `main`. En Settings → Pages, la fuente debe ser GitHub Actions. Los recursos usan rutas relativas para funcionar bajo el nombre del repositorio y en un futuro dominio propio.
+
+## Tipografía
+
+Source Sans 3 se sirve desde la propia app y está distribuida bajo la licencia libre SIL Open Font License 1.1. El texto de la licencia se conserva en `public/licenses/source-sans-3-OFL.txt`.

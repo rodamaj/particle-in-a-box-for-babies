@@ -42,9 +42,9 @@ export default function Illustration({kind, n = 1, L = 1, lengthLabel = false, b
       <circle cx={left} cy="155" r="4" fill={kind === 'density' ? 'var(--density)' : 'var(--wave)'}/><circle cx={right} cy="155" r="4" fill={kind === 'density' ? 'var(--density)' : 'var(--wave)'}/>
       {quantitative && <>
         <text x="360" y="18" textAnchor="middle" className="drawing-small">{kind === 'density' ? 'Densidad |ψ|² (nm⁻¹)' : 'Función de onda ψ (nm⁻¹ᐟ²)'}</text>
-        <text x={left - 12} y="87" textAnchor="end" className="axis-value">{fmt(peak)}</text>
+        <text x={left - 12} y="94" textAnchor="end" className="axis-value">{fmt(peak)}</text>
         <text x={left - 12} y="161" textAnchor="end" className="axis-value">0</text>
-        {kind === 'wave' && <text x={left - 12} y="230" textAnchor="end" className="axis-value">{fmt(-peak)}</text>}
+        {kind === 'wave' && <text x={left - 12} y="228" textAnchor="end" className="axis-value">{fmt(-peak)}</text>}
       </>}
     </>}
     {lengthLabel ? <>
